@@ -7,10 +7,10 @@ import java.util.Map;
 public class Statistics {
 
     private static int entries;
-    private static double[] avgRGB;
-    private static HashMap<double[], Integer> amts = new HashMap<>();
+    private static int[] avgRGB;
+    private static HashMap<String, Integer> amts = new HashMap<>();
 
-    public static double[] getAvgRGB(){
+    public static int[] getAvgRGB(){
         return avgRGB;
     }
 
@@ -18,19 +18,20 @@ public class Statistics {
         return entries;
     }
 
-    public static void evalAvg(double[] newRGB){
+    public static void evalAvg(int[] newRGB){
         updateAmts(newRGB);
-        double[] avg = new double[3];
+        int[] avg = new int[3];
         for(int i = 0; i < avg.length; i++)
             avgRGB[i] = ((avgRGB[i] * entries) + newRGB[i]) / (entries + 1);
         entries++;
     }
 
-    private static void updateAmts(double[] arr){
-        if(amts.containsKey(arr))
-            amts.put(arr, amts.get(arr) + 1);
+    private static void updateAmts(int[] rgbArr){
+        String rgbStr = Arrays.toString(rgbArr);
+        if(amts.containsKey(rgbStr))
+            amts.put(rgbStr, amts.get(rgbStr) + 1);
         else
-            amts.put(arr, amts.get(arr));  
+            amts.put(rgbStr, 1);  
     }
 
 
@@ -38,45 +39,45 @@ public class Statistics {
         entries = 1;
 
         //Yellow
-        avgRGB = new double[]{255, 229, 0};
+        avgRGB = new int[]{255, 229, 0};
         for(int i = 0; i < 2; i++)    
-            avgRGB = new double[]{255, 229, 0};
+            evalAvg(new int[]{255, 229, 0});
         
         //Pink    
         for(int i = 0; i < 2; i++)   
-            evalAvg(new double[]{252, 87, 166});
+            evalAvg(new int[]{252, 87, 166});
 
         //Cyan    
         for(int i = 0; i < 7; i++)    
-            evalAvg(new double[]{30, 235, 235});
+            evalAvg(new int[]{30, 235, 235});
         
         //White    
         for(int i = 0; i < 2; i++)        
-            evalAvg(new double[]{255, 255, 255});
+            evalAvg(new int[]{255, 255, 255});
          
         //Green    
         for(int i = 0; i < 14; i++)    
-            evalAvg(new double[]{28, 171, 77});
+            evalAvg(new int[]{28, 171, 77});
 
         //Purple
         for(int i = 0; i < 14; i++)
-            evalAvg(new double[]{122, 54, 233});
+            evalAvg(new int[]{122, 54, 233});
         
         //Blue
         for(int i = 0; i < 15; i++)
-            evalAvg(new double[]{25, 45, 218});
+            evalAvg(new int[]{25, 45, 218});
 
         //Red
         for(int i = 0; i < 8; i++)
-            evalAvg(new double[]{245, 46, 54});
+            evalAvg(new int[]{245, 46, 54});
 
         //Orange
         for(int i = 0; i < 5; i++)
-            evalAvg(new double[]{249, 131, 34});
+            evalAvg(new int[]{249, 131, 34});
 
         //Black
         for(int i = 0; i < 7; i++)
-            evalAvg(new double[]{0, 0, 0});    
+            evalAvg(new int[]{0, 0, 0});    
 
         System.out.println(Arrays.toString(avgRGB));
 
