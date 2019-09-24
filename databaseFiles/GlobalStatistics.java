@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Statistics {
+public class GlobalStatistics {
 
     private static int entries;
     private static int[] avgRGB;
@@ -86,7 +86,7 @@ public class Statistics {
             evalAvg(new int[]{25, 45, 218});
 
         //Red
-        for(int i = 0; i < 8; i++)
+        for(int i = 0; i < 15; i++)
             evalAvg(new int[]{245, 46, 54});
 
         //Orange
