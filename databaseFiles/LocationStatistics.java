@@ -59,5 +59,15 @@ public class LocationStatistics{
         return equaPop == null ? mostPop : mostPop + " " + equaPop;
     }
 
+    public int[] toArray(String str){
+        String[] strArr = str.split(",");
+        int[] intArr = new int[3];
+
+        for(int i = 0; i < intArr.length; i++)
+            intArr[i] = Integer.parseInt(strArr[i]);
+
+        return intArr;
+    }
+
 }
 
