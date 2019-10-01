@@ -26,6 +26,7 @@
       color: #000;
       width: 100%;
       height: 100%;
+      position: absolute;
     }
 
     .splash {
@@ -41,10 +42,10 @@
     .header {
       line-height: 75pt;
       text-transform: lowercase;
-      position: relative;
+      /* position: relative;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); */
     }
 
     .box {
@@ -103,9 +104,9 @@
 
 <body>
   <div class="splash">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
+    <div class="container d-flex">
+      <div class="row align-items-center">
+        <div class="col-lg-6 ">
           <div class="header">
             What's your favorite color?
           </div>
