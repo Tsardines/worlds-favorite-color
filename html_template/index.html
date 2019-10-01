@@ -147,12 +147,17 @@
   </div>
   <script>
     var ex1 = document.querySelector('#ex1');
-    ex1.addEventListener('click', function () {
+
+    function loop() {
       sweep(ex1, 'backgroundColor', '#a8f', '#a8f', {
+        callback: loop,
         direction: -1,
         duration: 2000
       });
-    }, false);
+      console.log('looping');
+    }
+
+    loop();
   </script>
 
 </body>
