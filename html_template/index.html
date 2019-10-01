@@ -52,53 +52,9 @@
     .box {
       width: 100px;
       height: 100px;
-      border-radius: 41px;
+      border-radius: 41%;
       margin: 1rem;
       box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .yellow {
-      background: rgb(255, 229, 0);
-    }
-
-    .orange {
-      background: rgb(249, 131, 34);
-    }
-
-    .red {
-      background: rgb(235, 31, 38);
-    }
-
-    .pink {
-      background: rgb(252, 87, 166)
-    }
-
-    .purple {
-      background: rgb(122, 54, 233)
-    }
-
-    .blue {
-      background: rgb(25, 45, 218)
-    }
-
-    .cyan {
-      background: rgb(30, 235, 235)
-    }
-
-    .green {
-      background: rgb(28, 171, 77);
-    }
-
-    .gray {
-      background: rgb(141, 141, 141)
-    }
-
-    .black {
-      background: rgb(0, 0, 0);
-    }
-
-    .white {
-      background: rgb(255, 255, 255);
     }
 
     @media (max-width: 640px) {
@@ -184,20 +140,25 @@
     </div>
   </div>
   <script>
-    var custom = document.getElementsByClassName('custom')[0];
-    var boxes = document.getElementsByClassName('box');
-    var colorNames = ["yellow", "orange", "red", "pink", "purple", "blue", "light blue", "green", "gray", "black",
+    const COLOR_NAMES = ["yellow", "orange", "red", "pink", "purple", "blue", "light blue", "green", "gray", "black",
       "white", "custom"
     ];
+    const COLORS = ["rgb(255, 229, 0)", "rgb(249, 131, 34)", "rgb(235, 31, 38)", "rgb(252, 87, 166)",
+      "rgb(122, 54, 233)", "rgb(25, 45, 218)", "rgb(30, 235, 235)", "rgb(28, 171, 77)", "rgb(141, 141, 141)",
+      "rgb(0, 0, 0)", "rgb(255, 255, 255)"
+    ];
+
+    var boxes = document.getElementsByClassName('box');
+    var custom = document.getElementsByClassName('custom')[0];
 
     var i;
-    for (i = 0; i < colorNames.length; i++) {
+    for (i = 0; i < COLORS.length; i++) {
       tippy(boxes[i], {
-        content: colorNames[i],
+        content: COLOR_NAMES[i],
         duration: 75,
       });
+      boxes[i].style.backgroundColor = COLORS[i];
     }
-
 
     function loop() {
       sweep(custom, 'backgroundColor', '#a8f', '#a8f', {
