@@ -138,7 +138,7 @@
           <div class="row">
             <div class="box black"></div>
             <div class="box white"></div>
-            <div class="box" id="ex1"></div>
+            <div class="box custom" id="ex1"></div>
           </div>
         </div>
       </div>
@@ -146,15 +146,15 @@
     </div>
   </div>
   <script>
-    var ex1 = document.querySelector('#ex1');
+    var custom = document.getElementsByClassName('custom')[0];
 
     function loop() {
-      sweep(ex1, 'backgroundColor', '#a8f', '#a8f', {
+      sweep(custom, 'backgroundColor', '#a8f', '#a8f', {
         callback: loop,
         direction: -1,
-        duration: 2000
+        duration: 5000
       });
-      console.log('looping');
+      // console.log('looping');
     }
 
     loop();
